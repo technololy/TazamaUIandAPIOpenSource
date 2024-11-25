@@ -1,0 +1,62 @@
+@page "/"
+<PageTitle>Home</PageTitle>
+
+<MudContainer>
+    <MudGrid>
+        <MudItem xs="12" md="12">
+            <MudText Typo="Typo.h3" GutterBottom="true">Hello, welcome to Tazama Json Uploader!</MudText>
+
+            <MudAlert Severity="Severity.Normal">
+                You can upload your json, have it validated and then proceed to send API Request via your normal process
+                <MudLink Href="https://tazama.com" Target="_blank" Typo="Typo.body2" Color="Color.Primary">
+                    <b>www.tazama.com</b>
+                </MudLink>
+            </MudAlert>
+        </MudItem>
+        <MudItem xs="6" md="6">
+            <MudFileUpload T="IBrowserFile" FilesChanged="UploadFiles">
+                <ActivatorContent>
+                    <MudButton Variant="Variant.Filled"
+                               Color="Color.Primary"
+                               StartIcon="@Icons.Material.Filled.CloudUpload">
+                        Attach JSON File
+                    </MudButton>
+                </ActivatorContent>
+            </MudFileUpload>
+        </MudItem>
+        <MudItem xs="6" md="6">
+            @if (_files != null)
+            {
+                <MudText Typo="@Typo.h6">@_files.Count() File@(_files.Count() == 1 ? "" : "s"):</MudText>
+                <MudList T="string">
+                    @foreach (var file in _files)
+                    {
+                        <MudListItem Icon="@Icons.Material.Filled.AttachFile" @key="@file">
+                            @file.Name <code>@file.Size bytes</code>
+                        </MudListItem>
+                    }
+                </MudList>
+            }
+        </MudItem>
+        <MudItem xs="12" md="12">
+            <MudButton OnClick="SaveFileToDb" >Save file to Db</MudButton>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
+
+
+
+
+@code {
+    readonly IList<IBrowserFile>? _files = new List<IBrowserFile>();
+    private void UploadFiles(IBrowserFile? file)
+    {
+        if (file != null) _files?.Add(file);
+    }
+
+    private async Task SaveFileToDb()
+    {
+        
+    }
+
+}

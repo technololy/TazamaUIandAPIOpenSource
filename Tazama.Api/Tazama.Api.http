@@ -1,0 +1,16 @@
+@Tazama.Api_HostAddress = http://localhost:5109
+@Tazama = http://localhost:5109
+
+GET {{Tazama}}/weatherforecast/
+Accept: application/json
+
+###
+
+POST {{Tazama}}/api/DynamicEndpoint/HandleEvent/fraud
+Accept: application/json
+Content-Type: application/json
+
+{
+"Hello":"yes"
+}
+

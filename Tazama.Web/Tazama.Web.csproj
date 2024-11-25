@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>aspnet-Tazama.Web-805e60f1-25de-4f06-8989-770cbb3528aa</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Update="Data\app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true"/>
+    </ItemGroup>
+
+
+    <ItemGroup>
+        <PackageReference Include="JsonSchema.Net" Version="7.2.3" />
+        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.*"/>
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.*"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.*"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.*"/>
+        <PackageReference Include="MudBlazor" Version="7.*"/>
+        <PackageReference Include="Extensions.MudBlazor.StaticInput" Version="2.*"/>
+    </ItemGroup>
+
+</Project>
